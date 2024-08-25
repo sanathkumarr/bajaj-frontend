@@ -5,12 +5,12 @@ function App() {
   const [inputData, setInputData] = useState('');
   const [response, setResponse] = useState(null);
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+   const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async () => {
     try {
       const parsedData = JSON.parse(inputData);
-      const res = await axios.post(`${backendUrl}/bfhl`, { data: parsedData.data });
+      const res = await axios.post(`https://bajaj-backend-nu-umber.vercel.app/bfhl`, { data: parsedData.data });
       setResponse(res.data);
     } catch (error) {
       console.error('Error:', error.message);
